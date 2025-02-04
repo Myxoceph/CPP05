@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 13:48:19 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/04 15:44:04 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:33:37 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
-#include <exception>
 #include "Form.hpp"
 
 #define GREEN "\033[1;32m"
