@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:00:46 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/04 15:51:53 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:28:38 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,21 +73,28 @@ void Form::beSigned(Bureaucrat &b)
 {
 	if (b.getGrade() > this->getReqSign())
 		std::cout << GREEN"Bureaucrat "CYAN << b.getName() << GREEN" couldn't signed the "BLUE << this->getName() << GREEN" form because they have a grade of "YELLOW << b.getGrade() << GREEN " and the form requires "BLUE << this->getReqSign() << GREEN" grade!"RESET << std::endl; 
+	else if (this->getIsSigned())
+		throw FormIsAlreadySignedException();
 	else
 	{
 		this->isSigned = true;
-		std::cout << GREEN"Bureaucrat "CYAN << b.getName() << GREEN" has signed the "BLUE << this->getName() << GREEN" form!" << std::endl; 
+		std::cout << GREEN"Bureaucrat "CYAN << b.getName() << GREEN" has signed the "BLUE << this->getName() << GREEN" form!" << std::endl;
 	}
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return ("Form grade too low");
+	return ("Form grade too low!");
 }
 
 const char *Form::GradeTooHighException::what() const throw()
 {
-	return ("Form grade too high");
+	return ("Form grade too high!");
+}
+
+const char *Form::FormIsAlreadySignedException::what() const throw()
+{
+	return ("Form is already signed!");
 }
 
 std::ostream& operator<<(std::ostream &os, const Form &b)
