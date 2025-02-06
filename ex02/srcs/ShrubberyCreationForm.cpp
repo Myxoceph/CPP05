@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:52:37 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/04 18:52:25 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/02/06 13:41:26 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,16 @@ std::string ShrubberyCreationForm::getTarget()
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const 
 {
+	std::string fileName = target;
 	if (!getIsSigned())
-		std::cout << RED"Bureaucrat "CYAN << executor.getName() << RED" cannot execute "BLUE << this->getName() << RED" to "BLUE << this->target << RED" because the form is not signed!"RESET << std::endl;
+		throw AForm::FormIsNotSignedException();
+	if (getIsExec())
+		throw AForm::FormIsAlreadyExecutedException();
 	if (executor.getGrade() > getReqExec())
 		throw AForm::GradeTooLowException();
 	std::ofstream outFile;
-	outFile.open((target + "_shrubbery"), std::ios::out);
+	fileName.append("_shrubbery");
+	outFile.open((fileName.c_str()), std::ios::out);
  
 	outFile <<
 				"                        .\n"
@@ -86,3 +90,6 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 				"                        ;\n";
 	outFile.close();
 }
+
+
+// std::cout << RED"Bureaucrat "CYAN << executor.getName() << RED" cannot execute "BLUE << this->getName() << RED" to "BLUE << this->target << RED" because the form is not signed!"RESET << std::endl;

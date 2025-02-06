@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:52:15 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/04 19:03:36 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/02/06 13:45:15 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,9 @@ std::string RobotomyRequestForm::getTarget()
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const 
 {
 	if (!getIsSigned())
-		std::cout << RED"Bureaucrat "CYAN << executor.getName() << RED" cannot execute "BLUE << this->getName() << RED" to "BLUE << this->target << RED" because the form is not signed!"RESET << std::endl;
+		throw AForm::FormIsNotSignedException();
+	if (getIsExec())
+		throw AForm::FormIsAlreadyExecutedException();
 	if (executor.getGrade() > getReqExec())
 		throw AForm::GradeTooLowException();
 	std::cout << BLUE"🤖🤖 ---- Drilling noises ---- 🤖🤖"RESET << std::endl;
@@ -64,5 +66,4 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 		std::cout << BLUE << target << WHITE" has been robotomized successfully."RESET << std::endl;
 	else
 		std::cout << WHITE"Robotomy of "BLUE << target << RED" failed."RESET << std::endl;
-	
 }

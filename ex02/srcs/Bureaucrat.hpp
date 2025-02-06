@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 13:48:19 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/04 19:03:00 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/02/06 13:16:09 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class Bureaucrat
 			void incGrade();
 			void decGrade();
 			void signForm(AForm &Aform);
-			void executeForm(AForm const &form);
+			void executeForm(AForm const &form) const;
 
 class GradeTooHighException : public std::exception
 {

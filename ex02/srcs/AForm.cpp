@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:00:46 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/04 16:38:20 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/02/06 13:44:11 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 AForm::AForm() : name("abakirca"), reqSign(42), reqExec(21)
 {
 	this->isSigned = false;
+	this->isExec = false;
 	std::cout << GREEN"Default constructor for "CYAN << name << GREEN" Aform called."RESET << std::endl;
 }
 
@@ -25,6 +26,7 @@ AForm::AForm(std::string const &newName, int newReqSign, int newReqExec) : name(
 	else if (newReqSign > 150 || newReqExec > 150)
 		throw GradeTooLowException();
 	this->isSigned = false;
+	this->isExec = false;
 	std::cout << GREEN"Constructor for "CYAN << name << GREEN" Aform called."RESET << std::endl;
 }
 
@@ -59,6 +61,11 @@ bool AForm::getIsSigned() const
 	return (this->isSigned);
 }
 
+bool AForm::getIsExec() const
+{
+	return (this->isExec);
+}
+
 int AForm::getReqSign() const
 {
 	return (this->reqSign);
@@ -69,10 +76,15 @@ int AForm::getReqExec() const
 	return (this->reqExec);
 }
 
+void AForm::setIsExec(bool flag)
+{
+	this->isExec = flag;
+}
+
 void AForm::beSigned(Bureaucrat &b)
 {
 	if (b.getGrade() > this->getReqSign())
-		std::cout << GREEN"Bureaucrat "CYAN << b.getName() << GREEN" couldn't signed the "BLUE << this->getName() << GREEN" Aform because they have a grade of "YELLOW << b.getGrade() << GREEN " and the Aform requires "BLUE << this->getReqSign() << GREEN" grade!"RESET << std::endl; 
+		throw GradeTooLowException();	
 	else if (this->getIsSigned())
 		throw FormIsAlreadySignedException();
 	else
@@ -84,17 +96,27 @@ void AForm::beSigned(Bureaucrat &b)
 
 const char *AForm::GradeTooLowException::what() const throw()
 {
-	return ("AForm grade too low!");
+	return ("The form's grade is too low!");
 }
 
 const char *AForm::GradeTooHighException::what() const throw()
 {
-	return ("AForm grade too high!");
+	return ("The form's grade is too high!");
 }
 
 const char *AForm::FormIsAlreadySignedException::what() const throw()
 {
-	return ("AForm is already signed!");
+	return ("The form is already signed!");
+}
+
+const char *AForm::FormIsNotSignedException::what() const throw()
+{
+	return ("The form is NOT signed!");
+}
+
+const char *AForm::FormIsAlreadyExecutedException::what() const throw()
+{
+	return ("The form is already executed!");
 }
 
 std::ostream& operator<<(std::ostream &os, const AForm &b)
