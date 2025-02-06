@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:00:46 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/06 13:44:11 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/02/06 14:19:28 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 AForm::AForm() : name("abakirca"), reqSign(42), reqExec(21)
 {
 	this->isSigned = false;
-	this->isExec = false;
 	std::cout << GREEN"Default constructor for "CYAN << name << GREEN" Aform called."RESET << std::endl;
 }
 
@@ -26,7 +25,6 @@ AForm::AForm(std::string const &newName, int newReqSign, int newReqExec) : name(
 	else if (newReqSign > 150 || newReqExec > 150)
 		throw GradeTooLowException();
 	this->isSigned = false;
-	this->isExec = false;
 	std::cout << GREEN"Constructor for "CYAN << name << GREEN" Aform called."RESET << std::endl;
 }
 
@@ -61,11 +59,6 @@ bool AForm::getIsSigned() const
 	return (this->isSigned);
 }
 
-bool AForm::getIsExec() const
-{
-	return (this->isExec);
-}
-
 int AForm::getReqSign() const
 {
 	return (this->reqSign);
@@ -74,11 +67,6 @@ int AForm::getReqSign() const
 int AForm::getReqExec() const
 {
 	return (this->reqExec);
-}
-
-void AForm::setIsExec(bool flag)
-{
-	this->isExec = flag;
 }
 
 void AForm::beSigned(Bureaucrat &b)

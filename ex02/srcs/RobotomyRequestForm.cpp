@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:52:15 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/06 13:45:15 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/02/06 14:19:41 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
 	if (!getIsSigned())
 		throw AForm::FormIsNotSignedException();
-	if (getIsExec())
-		throw AForm::FormIsAlreadyExecutedException();
 	if (executor.getGrade() > getReqExec())
 		throw AForm::GradeTooLowException();
 	std::cout << BLUE"🤖🤖 ---- Drilling noises ---- 🤖🤖"RESET << std::endl;

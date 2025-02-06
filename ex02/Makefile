@@ -6,7 +6,7 @@
 #    By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 20:10:29 by abakirca          #+#    #+#              #
-#    Updated: 2025/02/06 13:49:27 by abakirca         ###   ########.fr        #
+#    Updated: 2025/02/06 14:25:02 by abakirca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ clean			:
 fclean			:	clean
 					@$(RM) $(NAME)
 					@$(RM) *_shrubbery
-					@echo "\e[1m$(COLOR_YELLOW)$(NAME)	$(COLOR_RED)[is deleted!]\e[0m$(COLOR_END)"
+					@echo "\e[1m$(COLOR_YELLOW)$(NAME)		$(COLOR_RED)[is deleted!]\e[0m$(COLOR_END)"
 
 re				:	fclean all
 

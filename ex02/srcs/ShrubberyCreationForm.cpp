@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:52:37 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/06 13:41:26 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/02/06 14:23:51 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,13 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 	std::string fileName = target;
 	if (!getIsSigned())
 		throw AForm::FormIsNotSignedException();
-	if (getIsExec())
-		throw AForm::FormIsAlreadyExecutedException();
 	if (executor.getGrade() > getReqExec())
 		throw AForm::GradeTooLowException();
 	std::ofstream outFile;
 	fileName.append("_shrubbery");
 	outFile.open((fileName.c_str()), std::ios::out);
- 
+	if (!outFile.is_open())
+		throw std::ofstream::failure("File cannot be opened");
 	outFile <<
 				"                        .\n"
 				"                       .:.\n"
