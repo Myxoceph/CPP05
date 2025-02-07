@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:04:37 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/06 16:28:03 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:57:25 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 Intern::Intern()
 {
-	std::cout << GREEN"Default constructor for "CYAN << "Intern" << GREEN" called."RESET << std::endl;
+	std::cout << GREEN"### Default constructor for "CYAN << "Intern" << GREEN" called. ###"RESET << std::endl;
 }
 
 Intern::Intern(const Intern &copy)
 {
 	*this = copy;
-	std::cout << GREEN"Copy constructor for "CYAN << "Intern" << GREEN" called."RESET << std::endl;
+	std::cout << GREEN"### Copy constructor for "CYAN << "Intern" << GREEN" called. ###"RESET << std::endl;
 }
 
 Intern &Intern::operator=(const Intern &copy)
 {
 	(void)copy;
-	std::cout << GREEN"Copy assignment operator for "CYAN << "Intern" << GREEN" called."RESET << std::endl;
+	std::cout << GREEN"### Copy assignment operator for "CYAN << "Intern" << GREEN" called. ###"RESET << std::endl;
 	return (*this);
 }
 
 Intern::~Intern()
 {
-	std::cout << GREEN"Destructor for "CYAN << "Intern" << GREEN" called."RESET << std::endl;
+	std::cout << GREEN"### Destructor for "CYAN << "Intern" << GREEN" called. ###"RESET << std::endl;
 }
 
 const char* Intern::FormNotFoundException::what() const throw() {
@@ -40,17 +40,17 @@ const char* Intern::FormNotFoundException::what() const throw() {
 }
 
 AForm *Intern::makePresidentialPardon(std::string target) {
-	std::cout << "Intern creates Presidential Pardon Form" << std::endl;
+	std::cout << WHITE"Intern creates Presidential Pardon Form"RESET << std::endl;
 	return new PresidentialPardonForm(target);
 }
 
 AForm *Intern::makeRobotomyRequest(std::string target) {
-	std::cout << "Intern creates Robotomy Request Form" << std::endl;
+	std::cout << WHITE"Intern creates Robotomy Request Form"RESET << std::endl;
 	return new RobotomyRequestForm(target);
 }
 
 AForm *Intern::makeShrubberyCreation(std::string target) {
-	std::cout << "Intern creates Shrubbery Creation Form" << std::endl;
+	std::cout << WHITE"Intern creates Shrubbery Creation Form"RESET << std::endl;
 	return new ShrubberyCreationForm(target);
 }
 

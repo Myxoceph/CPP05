@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 13:47:44 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/06 13:36:15 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/02/07 16:02:27 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,34 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
-int main() 
+int main()
 {
+	Intern someRandomIntern;
+	AForm* rrf;
+	AForm* zpf;
+	Bureaucrat b("Jarvis", 42);
+	std::cout << std::endl;
 	try 
 	{
-		Bureaucrat bureaucrat("Alice", 1);
-		ShrubberyCreationForm shrubberyForm("Home");
+		rrf = someRandomIntern.makeForm("shrubbery creation", "42 Kocaeli");
 		std::cout << std::endl;
-		shrubberyForm.beSigned(bureaucrat);
-		bureaucrat.executeForm(shrubberyForm);
-		bureaucrat.executeForm(shrubberyForm);
+		std::cout << rrf << std::endl;
 		std::cout << std::endl;
-		RobotomyRequestForm robotomyForm("Bob");
+		b.signForm(*rrf);
+		b.executeForm(*rrf);
 		std::cout << std::endl;
-		robotomyForm.beSigned(bureaucrat);
-		bureaucrat.executeForm(robotomyForm);
+		std::cout << b << std::endl;
+		std::cout << rrf << std::endl;
 		std::cout << std::endl;
-		PresidentialPardonForm pardonForm("Charlie");
+		delete rrf;
 		std::cout << std::endl;
-		pardonForm.beSigned(bureaucrat);
-		bureaucrat.executeForm(pardonForm);
-		std::cout << std::endl;
+		zpf = someRandomIntern.makeForm("some random form", "Ahmet");
 	} 
 	catch (std::exception &e) 
 	{
-		std::cout << RED"Exception: " << e.what() << RESET << std::endl;
+		std::cout << RED << e.what() << RESET << std::endl;
 	}
-
-	return 0;
+	std::cout << std::endl;
 }

@@ -6,14 +6,14 @@
 #    By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 20:10:29 by abakirca          #+#    #+#              #
-#    Updated: 2025/02/06 16:27:43 by abakirca         ###   ########.fr        #
+#    Updated: 2025/02/07 15:41:51 by abakirca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	intern
 
 CC				=	c++
-CFLAGS			=	-Wall -Werror -Wextra -std=c++98
+CFLAGS			=	-Wall -Werror -Wextra -std=c++98 -g
 
 RM				=	rm -rf
 

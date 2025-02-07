@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:00:46 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/06 14:19:28 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:57:25 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 AForm::AForm() : name("abakirca"), reqSign(42), reqExec(21)
 {
 	this->isSigned = false;
-	std::cout << GREEN"Default constructor for "CYAN << name << GREEN" Aform called."RESET << std::endl;
+	std::cout << GREEN"### Default constructor for "CYAN << name << GREEN" Aform called. ###"RESET << std::endl;
 }
 
 AForm::AForm(std::string const &newName, int newReqSign, int newReqExec) : name(newName), reqSign(newReqSign), reqExec(newReqExec)
@@ -25,13 +25,13 @@ AForm::AForm(std::string const &newName, int newReqSign, int newReqExec) : name(
 	else if (newReqSign > 150 || newReqExec > 150)
 		throw GradeTooLowException();
 	this->isSigned = false;
-	std::cout << GREEN"Constructor for "CYAN << name << GREEN" Aform called."RESET << std::endl;
+	std::cout << GREEN"### Constructor for "CYAN << name << GREEN" Aform called. ###"RESET << std::endl;
 }
 
 AForm::AForm(const AForm &copy) : name(copy.getName()), reqSign(copy.getReqSign()), reqExec(copy.getReqExec()) 
 {
 	*this = copy;
-	std::cout << GREEN"Copy constructor for "CYAN << name << GREEN" Aform called."RESET << std::endl;
+	std::cout << GREEN"### Copy constructor for "CYAN << name << GREEN" Aform called. ###"RESET << std::endl;
 }
 
 AForm &AForm::operator=(const AForm &copy)
@@ -40,13 +40,13 @@ AForm &AForm::operator=(const AForm &copy)
 	{
 		this->isSigned = copy.isSigned;
 	}
-	std::cout << GREEN"Copy assignment operator for "CYAN << name << GREEN" Aform called."RESET << std::endl;
+	std::cout << GREEN"### Copy assignment operator for "CYAN << name << GREEN" Aform called. ###"RESET << std::endl;
 	return (*this);
 }
 
 AForm::~AForm()
 {
-	std::cout << GREEN"Destructor for "CYAN << name << GREEN" Aform called."RESET << std::endl;
+	std::cout << GREEN"### Destructor for "CYAN << name << GREEN" Aform called. ###"RESET << std::endl;
 }
 
 const std::string AForm::getName() const

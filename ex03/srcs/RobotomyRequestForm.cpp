@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:52:15 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/06 14:19:41 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:57:25 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@
 RobotomyRequestForm::RobotomyRequestForm() : AForm("Robotomy Request", 72, 45)
 {
 	this->target = "42 Kocaeli";
-	std::cout << GREEN"Default constructor for "CYAN << name << GREEN" called."RESET << std::endl;
+	std::cout << GREEN"### Default constructor for "CYAN << name << GREEN" called. ###"RESET << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string newTarget) : AForm("Robotomy Request", 72, 45)
 {
 	this->target = newTarget;
-	std::cout << GREEN"Constructor for "CYAN << name << GREEN" called."RESET << std::endl;
+	std::cout << GREEN"### Constructor for "CYAN << name << GREEN" called. ###"RESET << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy)
 {
 	*this = copy;
-	std::cout << GREEN"Copy constructor for "CYAN << name << GREEN" called."RESET << std::endl;
+	std::cout << GREEN"### Copy constructor for "CYAN << name << GREEN" called. ###"RESET << std::endl;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &copy)
@@ -38,13 +38,13 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &c
 	{
 		this->target = copy.target;
 	}
-	std::cout << GREEN"Copy assignment operator for "CYAN << name << GREEN" called."RESET << std::endl;
+	std::cout << GREEN"### Copy assignment operator for "CYAN << name << GREEN" called. ###"RESET << std::endl;
 	return (*this);
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout << GREEN"Destructor for "CYAN << name << GREEN" called."RESET << std::endl;
+	std::cout << GREEN"### Destructor for "CYAN << name << GREEN" called. ###"RESET << std::endl;
 }
 
 std::string RobotomyRequestForm::getTarget()

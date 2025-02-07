@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:00:46 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/04 16:28:38 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:57:25 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Form::Form() : name("abakirca"), reqSign(42), reqExec(21)
 {
 	this->isSigned = false;
-	std::cout << GREEN"Default constructor for "CYAN << name << GREEN" form called."RESET << std::endl;
+	std::cout << GREEN"### Default constructor for "CYAN << name << GREEN" form called. ###"RESET << std::endl;
 }
 
 Form::Form(std::string const &newName, int newReqSign, int newReqExec) : name(newName), reqSign(newReqSign), reqExec(newReqExec)
@@ -25,13 +25,13 @@ Form::Form(std::string const &newName, int newReqSign, int newReqExec) : name(ne
 	else if (newReqSign > 150 || newReqExec > 150)
 		throw GradeTooLowException();
 	this->isSigned = false;
-	std::cout << GREEN"Constructor for "CYAN << name << GREEN" form called."RESET << std::endl;
+	std::cout << GREEN"### Constructor for "CYAN << name << GREEN" form called. ###"RESET << std::endl;
 }
 
 Form::Form(const Form &copy) : name(copy.getName()), reqSign(copy.getReqSign()), reqExec(copy.getReqExec()) 
 {
 	*this = copy;
-	std::cout << GREEN"Copy constructor for "CYAN << name << GREEN" form called."RESET << std::endl;
+	std::cout << GREEN"### Copy constructor for "CYAN << name << GREEN" form called. ###"RESET << std::endl;
 }
 
 Form &Form::operator=(const Form &copy)
@@ -40,13 +40,13 @@ Form &Form::operator=(const Form &copy)
 	{
 		this->isSigned = copy.isSigned;
 	}
-	std::cout << GREEN"Copy assignment operator for "CYAN << name << GREEN" form called."RESET << std::endl;
+	std::cout << GREEN"### Copy assignment operator for "CYAN << name << GREEN" form called. ###"RESET << std::endl;
 	return (*this);
 }
 
 Form::~Form()
 {
-	std::cout << GREEN"Destructor for "CYAN << name << GREEN" form called."RESET << std::endl;
+	std::cout << GREEN"### Destructor for "CYAN << name << GREEN" form called. ###"RESET << std::endl;
 }
 
 const std::string Form::getName() const

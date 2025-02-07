@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:00:44 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/06 14:19:02 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:54:50 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class AForm
 			AForm(std::string const &newName, int newReqSign, int newReqExec);
 			AForm(AForm const &copy);
 			AForm &operator=(AForm const &copy);
-			~AForm();
+			virtual ~AForm();
 			std::string const getName() const;
 			bool getIsSigned() const;
 			int getReqSign() const;
@@ -71,14 +71,9 @@ class FormIsNotSignedException : public std::exception
 			const char* what() const throw();
 };
 
-class FormIsAlreadyExecutedException : public std::exception
-{
-	public:
-			const char* what() const throw();
-};
-
 };
 
 std::ostream& operator<<(std::ostream &os, const AForm &b);
+std::ostream& operator<<(std::ostream &os, const AForm *b);
 
 #endif

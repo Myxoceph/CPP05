@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:52:37 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/06 14:23:51 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:57:25 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery Creation", 145, 137)
 {
 	this->target = "42 Kocaeli";
-	std::cout << GREEN"Default constructor for "CYAN << name << GREEN" called."RESET << std::endl;
+	std::cout << GREEN"### Default constructor for "CYAN << name << GREEN" called. ###"RESET << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string newTarget) : AForm("Shrubbery Creation", 145, 137)
 {
 	this->target = newTarget;
-	std::cout << GREEN"Constructor for "CYAN << name << GREEN" called."RESET << std::endl;
+	std::cout << GREEN"### Constructor for "CYAN << name << GREEN" called. ###"RESET << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy)
 {
 	*this = copy;
-	std::cout << GREEN"Copy constructor for "CYAN << name << GREEN" called."RESET << std::endl;
+	std::cout << GREEN"### Copy constructor for "CYAN << name << GREEN" called. ###"RESET << std::endl;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy)
@@ -36,13 +36,13 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	{
 		this->target = copy.target;
 	}
-	std::cout << GREEN"Copy assignment operator for "CYAN << name << GREEN" called."RESET << std::endl;
+	std::cout << GREEN"### Copy assignment operator for "CYAN << name << GREEN" called. ###"RESET << std::endl;
 	return (*this);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << GREEN"Destructor for "CYAN << name << GREEN" called."RESET << std::endl;
+	std::cout << GREEN"### Destructor for "CYAN << name << GREEN" called. ###"RESET << std::endl;
 }
 
 std::string ShrubberyCreationForm::getTarget()
