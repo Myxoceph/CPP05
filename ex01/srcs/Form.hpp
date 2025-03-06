@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:00:44 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/04 16:33:39 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/03/06 15:31:40 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ class Form
 			bool isSigned;
 			int const reqSign;
 			int const reqExec;
-
 	public:
 			Form();
 			Form(std::string const &newName, int newReqSign, int newReqExec);
@@ -46,24 +45,23 @@ class Form
 			int getReqExec() const;
 			void beSigned(Bureaucrat &b);
 
-class GradeTooHighException : public std::exception
-{
-	public:
-			const char* what() const throw();
-};
+			class GradeTooHighException : public std::exception
+			{
+				public:
+						const char* what() const throw();
+			};
 
-class GradeTooLowException : public std::exception
-{
-	public:
-			const char* what() const throw();
-};
+			class GradeTooLowException : public std::exception
+			{
+				public:
+						const char* what() const throw();
+			};
 
-class FormIsAlreadySignedException : public std::exception
-{
-	public:
-			const char* what() const throw();
-};
-
+			class FormIsAlreadySignedException : public std::exception
+			{
+				public:
+						const char* what() const throw();
+			};
 };
 
 std::ostream& operator<<(std::ostream &os, const Form &b);

@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:45:32 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/04 18:56:56 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/03/06 15:31:30 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ class RobotomyRequestForm : public AForm
 {
 	private:
 			std::string target;
-	
 	public:
 			RobotomyRequestForm();
 			RobotomyRequestForm(std::string newTarget);
@@ -30,6 +29,5 @@ class RobotomyRequestForm : public AForm
 			void execute(Bureaucrat const & executor) const;
 			
 };
-
 
 #endif

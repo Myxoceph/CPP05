@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:52:37 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/07 15:57:25 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/03/06 15:26:27 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,3 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 				"                        ;\n";
 	outFile.close();
 }
-
-
-// std::cout << RED"Bureaucrat "CYAN << executor.getName() << RED" cannot execute "BLUE << this->getName() << RED" to "BLUE << this->target << RED" because the form is not signed!"RESET << std::endl;

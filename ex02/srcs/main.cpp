@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 13:47:44 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/07 16:03:59 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/03/06 15:27:10 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,5 @@ int main()
 	{
 		std::cout << RED"Exception: " << e.what() << RESET << std::endl;
 	}
-
 	return 0;
 }
