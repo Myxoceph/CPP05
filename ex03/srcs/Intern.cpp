@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:04:37 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/07 15:57:25 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:56:57 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,27 @@ Intern::~Intern()
 	std::cout << GREEN"### Destructor for "CYAN << "Intern" << GREEN" called. ###"RESET << std::endl;
 }
 
-const char* Intern::FormNotFoundException::what() const throw() {
+const char* Intern::FormNotFoundException::what() const throw()
+{
 	return "Intern: Form Not Found";
 }
 
-AForm *Intern::makePresidentialPardon(std::string target) {
+AForm *Intern::makePresidentialPardon(std::string target)
+{
 	std::cout << WHITE"Intern creates Presidential Pardon Form"RESET << std::endl;
-	return new PresidentialPardonForm(target);
+	return (new PresidentialPardonForm(target));
 }
 
-AForm *Intern::makeRobotomyRequest(std::string target) {
+AForm *Intern::makeRobotomyRequest(std::string target)
+{
 	std::cout << WHITE"Intern creates Robotomy Request Form"RESET << std::endl;
-	return new RobotomyRequestForm(target);
+	return (new RobotomyRequestForm(target));
 }
 
-AForm *Intern::makeShrubberyCreation(std::string target) {
+AForm *Intern::makeShrubberyCreation(std::string target)
+{
 	std::cout << WHITE"Intern creates Shrubbery Creation Form"RESET << std::endl;
-	return new ShrubberyCreationForm(target);
+	return (new ShrubberyCreationForm(target));
 }
 
 AForm *Intern::makeForm(std::string formName, std::string target) 
