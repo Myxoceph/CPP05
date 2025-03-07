@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:00:46 by abakirca          #+#    #+#             */
-/*   Updated: 2025/02/07 15:57:25 by abakirca         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:36:24 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,6 @@ const char *AForm::FormIsAlreadySignedException::what() const throw()
 const char *AForm::FormIsNotSignedException::what() const throw()
 {
 	return ("The form is NOT signed!");
-}
-
-const char *AForm::FormIsAlreadyExecutedException::what() const throw()
-{
-	return ("The form is already executed!");
 }
 
 std::ostream& operator<<(std::ostream &os, const AForm &b)
